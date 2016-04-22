@@ -158,7 +158,7 @@
   
   <div data-role="page" id="page2">
     <div data-role="header">
-     <h1>Upload Image</h1>
+     <h1>DIY Touch Image Analysis</h1>
     </div><!-- /header -->
     <div data-role="content">	
       <h2>Push button to take picture.</h2>
@@ -168,24 +168,19 @@
       </div>
       <div id="messageDisplayArea"></div>
       
-      <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3; align:center;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
         context.font = '20pt Calibri';
         context.fillStyle = "black";
-        context.fillText("Original image will go here", 10, 20);
+        context.fillText("Uploaded image will go here", 10, 20);
       </script>
       
-      <canvas id="blueCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-      <script> /* This script initiates the blue data canvas and puts text on "blueCanvas" */
-       var canvas2 = document.getElementById('blueCanvas');
-       var context2 = canvas2.getContext("2d");
-       context2.font = '20pt Calibri';
-       context2.fillStyle = "black";
-       context2.fillText("Analyzed image will go here", 10, 20);
-      </script>
-
+      Press the button below when you are satisfied with the image.
+      <a href="#page3" data-role="button">Continue</a>
+      
+      
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
       <p>DIY Diagnostics</p>
