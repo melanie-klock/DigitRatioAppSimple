@@ -136,10 +136,25 @@
     } // end of the else statement if file in NOT an image
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
+ 
+ function initialize(){
+  var canvas = document.getElementById("myCanvas");
+  canvas.addEventListener("touchstart", draw, false)
+ }
+ 
+ function draw(){
+  var canvas = document.getElementById("myCanvas");
+  
+  if(canvas.getContext)
+  {
+   var ctx = canvas.getContext("2d");
+   ctx.fillRect (event.touches[0].pageX, event.touches[0].pageY, 50, 50);
+  }
+ }
  </script>
  </head>
 
- <body>
+ <body onload="intialize()">
   
    <div data-role="page" id="page1">
     <div data-role="header">
@@ -161,7 +176,7 @@
      <h1>DIY Touch Image Analysis</h1>
     </div><!-- /header -->
     <div data-role="content">	
-      <h2>Push button to take picture.</h2>
+      <h2>Push button to take picture. When you are satisfied, touch the area of the picture you would like to analyze.</h2>
       <div>
         Press orange button to create or choose image file:
         <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
@@ -176,9 +191,6 @@
         context.fillStyle = "black";
         context.fillText("Uploaded image will go here", 10, 20);
       </script>
-      <br><br>
-      <center>Press the button below when you are satisfied with the image.</center>
-      <a href="#page3" data-role="button">Continue</a>
       
       
     </div><!-- /content -->
