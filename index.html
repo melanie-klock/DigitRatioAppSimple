@@ -141,7 +141,20 @@
  <body>
   <div data-role="page">
     <div data-role="header">
-    <h1>Primary Colors</h1></div><!-- /header -->
+    <h1>Color Analysis</h1></div><!-- /header -->
+    <div data-role="content">	
+      Blah blah
+      <a href="#page2" data-role="button">Continue</a>
+    </div><!-- /content -->
+    <div data-role="footer" data-position="fixed">
+      <p>DIY Diagnostics</p>
+    </div><!-- /footer -->
+  </div><!-- /page -->
+  
+  
+  <div data-role="page" id="page2">
+    <div data-role="header">
+    <h1>Color Analysis</h1></h1></div><!-- /header -->
     <div data-role="content">	
       <h2>Push button to take picture.</h2>
       <div>
@@ -156,7 +169,7 @@
         var context = canvas.getContext("2d");
         context.font = '20pt Calibri';
         context.fillStyle = "black";
-        context.fillText("Original image will go here", 10, 20);
+        context.fillText("Uploaded image will go here", 10, 20);
       </script>
       
 
