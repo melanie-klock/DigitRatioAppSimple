@@ -24,9 +24,8 @@
   http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
   
   Brief Description of Goal of Code:
-  Create an app that allows the user to select a region of interest (ROI) on their uploaded image, and analyze the ROI
-  to calculate RGB percentages. Present the data in a table easy for the user to read and output the ROI with the
-  highest green concentration.
+  Create an app that allows the user to upload an image from their phone or computer onto a canvas, and then
+  do image analysis on the uploaded image.
  
   Known Issues:
   None
@@ -136,64 +135,39 @@
     } // end of the else statement if file in NOT an image
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
- /*
- function initialize(){
-  var canvas = document.getElementById("myCanvas");
-  canvas.addEventListener("touchstart", doTouchStart, false);
- }
- 
- function doTouchStart(event){
-  event.preventDefault();
-  
-  canvas_x = event.targetTouches[0].pageX;
-  canvas_y = event.targetTouches[0].pageY;
-  if(canvas.getContext) {
-   var ctx = canvas.getContext("2d");
-   ctx.strokeRect (canvas_x, canvas_y, 150, 100);
-  }
- } */
  </script>
  </head>
 
- <body onload="initialize()">
-  
-   <div data-role="page" id="page1">
+ <body>
+  <div data-role="page">
     <div data-role="header">
-     <h1>DIY Touch Image Analysis</h1>
-    </div><!-- /header -->
+    <h1>Primary Colors</h1></div><!-- /header -->
     <div data-role="content">	
-      Welcome welcome blah
-      <a href="#page2" data-role="button">Continue</a>
-    </div><!-- /content -->
-    <div data-role="footer" data-position="fixed">
-      <p>DIY Diagnostics</p>
-    </div><!-- /footer -->
-  </div><!-- /page -->
-  
-  
-  
-  <div data-role="page" id="page2">
-    <div data-role="header">
-     <h1>DIY Touch Image Analysis</h1>
-    </div><!-- /header -->
-    <div data-role="content">	
-      <h2>Push button to take picture. When you are satisfied, touch the area of the picture you would like to analyze.</h2>
+      <h2>Push button to take picture.</h2>
       <div>
         Press orange button to create or choose image file:
         <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
       </div>
       <div id="messageDisplayArea"></div>
       
-      <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3; padding:0; margin:auto; display:block;"></canvas>
+      <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
         context.font = '20pt Calibri';
         context.fillStyle = "black";
-        context.fillText("Uploaded image will go here", 10, 20);
+        context.fillText("Original image will go here", 10, 20);
       </script>
       
-      
+      <canvas id="blueCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <script> /* This script initiates the blue data canvas and puts text on "blueCanvas" */
+       var canvas2 = document.getElementById('blueCanvas');
+       var context2 = canvas2.getContext("2d");
+       context2.font = '20pt Calibri';
+       context2.fillStyle = "black";
+       context2.fillText("Analyzed image will go here", 10, 20);
+      </script>
+
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
       <p>DIY Diagnostics</p>
