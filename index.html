@@ -142,10 +142,10 @@ function draw() {
  var canvas = document.getElementById('myCanvas');
 
  if (canvas.getContext) {
-   var context = canvas.getContext("2d");
+   var context = canvas.getContext("2d");/*
    var touchX=touch.pageX-touch.target.offsetLeft;
-   var touchY=touch.pageY-touch.target.offsetTop;
-   context.strokeRect(event.touches[0].touchX, event.touches[0].touchY, 150, 50);
+   var touchY=touch.pageY-touch.target.offsetTop;*/
+   context.strokeRect(event.touches[0].pageX-touch.target.offsetLeft, event.touches[0].pageY-touch.target.offsetTop, 150, 50);
   }
 }
 /*
