@@ -148,8 +148,7 @@ function draw() {
   }
 }*/
 
-var canvas = document.getElementById("myCanvas");
-var ctx = canvas.getContext("2d");
+var canvas,ctx;
 
     // Draws a dot at a specific position on the supplied canvas name
     // Parameters are: A canvas context, the x position, the y position, the size of the dot
@@ -234,16 +233,16 @@ var ctx = canvas.getContext("2d");
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
-        var context = canvas.getContext("2d");
+        var ctx = canvas.getContext("2d");
         /*canvas.addEventListener("touchstart", draw, false);*/
-        if (context)
+        if (ctx)
         {
          canvas.addEventListener('touchstart', sketchpad_touchStart, false);
          canvas.addEventListener('touchmove', sketchpad_touchMove, false);
         }
-        context.font = '20pt Calibri';
-        context.fillStyle = "black";
-        context.fillText("Uploaded image will go here", 10, 20);
+        ctx.font = '20pt Calibri';
+        ctx.fillStyle = "black";
+        ctx.fillText("Uploaded image will go here", 10, 20);
       </script>
       
 
