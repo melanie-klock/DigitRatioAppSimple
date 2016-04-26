@@ -142,9 +142,8 @@ function draw() {
  var canvas = document.getElementById('myCanvas');
 
  if (canvas.getContext) {
-   var ctx = canvas.getContext("2d");
-   ctx.strokeRect(event.touches[0].pageX, event.touches[0].pageY, 150, 50);
-   alert("X="+pageX+" Y="+pageY);
+   var context = canvas.getContext("2d");
+   context.strokeRect(event.touches[0].pageX, event.touches[0].pageY, 150, 50);
   }
 }
 /*
@@ -233,11 +232,11 @@ var canvas,ctx;
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
-        var ctx = canvas.getContext("2d");
+        var context = canvas.getContext("2d");
         canvas.addEventListener("touchstart", draw, false);
-        ctx.font = '20pt Calibri';
-        ctx.fillStyle = "black";
-        ctx.fillText("Uploaded image will go here", 10, 20);
+        context.font = '20pt Calibri';
+        context.fillStyle = "black";
+        context.fillText("Uploaded image will go here", 10, 20);
       </script>
       
 
