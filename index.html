@@ -103,17 +103,7 @@
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
           
-          var canvas = document.getElementById("myCanvas");
-          canvas.addEventListener("touchstart", draw, false);
           
-          function draw() {
-             var canvas = document.getElementById('mycanvas');
-        
-             if(canvas.getContext) {
-               var ctx = canvas.getContext("2d");
-               ctx.strokeRect(event.touches[0].pageX, event.touches[0].pageY, 150, 50);
-             }
-           }
            
            // pulls the RGB image data from point (0,0) on the canvas and spans image's width and height
            var imageData = context.getImageData(0, 0, img.width, img.height);
@@ -148,13 +138,24 @@
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
  
+function initialize(){
+ var canvas = document.getElementById("myCanvas");
+ canvas.addEventListener("touchstart", draw, false);
+}
  
- 
+function draw() {
+ var canvas = document.getElementById('mycanvas');
+
+ if (canvas.getContext) {
+   var ctx = canvas.getContext("2d");
+   ctx.strokeRect(event.touches[0].pageX, event.touches[0].pageY, 150, 50);
+  }
+}
  
  </script>
  </head>
 
- <body>
+ <body onload="initialize()">
   <div data-role="page">
     <div data-role="header">
     <h1>Color Analysis</h1></div><!-- /header -->
