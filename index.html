@@ -104,7 +104,7 @@
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
-          
+          //note: img.onload code below is left over from App 8 assignment
           
            
            // pulls the RGB image data from point (0,0) on the canvas and spans image's width and height
@@ -140,16 +140,28 @@
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
 
-function draw() {
- var canvas = document.getElementById('myCanvas');
 
+
+
+//Creates drawing function for when user touches canvas
+function draw() {
+ //Defines canvas variable from DOM
+ var canvas = document.getElementById('myCanvas');
+//if statement for when context is called
  if (canvas.getContext) {
+   //grabs 2D context from canvas
    var context = canvas.getContext("2d");
+   //defines touch variable to make the following code a little simpler
    var touch = event.touches[0];
+   //Fixes the value of pageX off set by the page scroll
    var touchX = touch.pageX-touch.target.offsetLeft;
+   //Fixes value of pageY. Now rectangles on the canvas appear on the touch target
    var touchY = touch.pageY-touch.target.offsetTop;
+   //Changes color of rectangle border
    context.strokeStyle="#FF0000";
+   //Makes rectangle border thicker
    context.lineWidth=5;
+   //Draws 250x300 rectangle outline so that top left corner is where user touches
    context.strokeRect(touchX, touchY, 250, 300);
   }
 }
@@ -165,12 +177,13 @@ function draw() {
     <div data-role="content">	
       Welcome to the PCR Image Analysis website for DIY Diagnostics!<br>
       The process can be completed in a few simple steps:<br>
-      <ol>
+      <ol> <!-- begins ordered (number) list -->
+       <!-- <li> begins a new item in the list -->
        <li>Upload an image of the PCR tubes you would like to analyze (over a white background)</li>
        <li>Tap the upper left hand corner of each PCR tube so that the red rectangle is surrounding them</li>
        <li>Press the "Analyze" button when you are satisfied with how your rectangles are placed</li>
        <li>Get your results!</li>
-      </ol>
+      </ol> <!-- end of list -->
       
       Press the button bellow to continue:
       <a href="#page2" data-role="button">Continue</a>
@@ -195,9 +208,10 @@ function draw() {
       <div id="messageDisplayArea"></div>
       
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-      <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
+      <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
+        //On a single touch, "draw" function is called and draws a rectangle on the canvas
         canvas.addEventListener("touchstart", draw, false);
         context.font = '20pt Calibri';
         context.fillStyle = "black";
