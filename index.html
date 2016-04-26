@@ -137,7 +137,7 @@
     } // end of the else statement if file in NOT an image
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
-/* 
+
 function draw() {
  var canvas = document.getElementById('myCanvas');
 
@@ -146,8 +146,8 @@ function draw() {
    ctx.strokeRect(event.touches[0].pageX, event.touches[0].pageY, 150, 50);
    alert("X="+pageX+" Y="+pageY);
   }
-}*/
-
+}
+/*
 var canvas,ctx;
 
     // Draws a dot at a specific position on the supplied canvas name
@@ -199,7 +199,7 @@ var canvas,ctx;
 
         // Prevent a scrolling action as a result of this touchmove triggering.
         event.preventDefault();
-    }
+    }*/
 
  
  </script>
@@ -234,12 +234,7 @@ var canvas,ctx;
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var ctx = canvas.getContext("2d");
-        /*canvas.addEventListener("touchstart", draw, false);*/
-        if (ctx)
-        {
-         canvas.addEventListener('touchstart', sketchpad_touchStart, false);
-         canvas.addEventListener('touchmove', sketchpad_touchMove, false);
-        }
+        canvas.addEventListener("touchstart", draw, false);
         ctx.font = '20pt Calibri';
         ctx.fillStyle = "black";
         ctx.fillText("Uploaded image will go here", 10, 20);
