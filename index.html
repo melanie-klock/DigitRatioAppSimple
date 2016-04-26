@@ -138,11 +138,6 @@
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
  
-function initialize(){
- var canvas = document.getElementById("myCanvas");
- canvas.addEventListener("touchstart", draw, false);
-}
- 
 function draw() {
  var canvas = document.getElementById('myCanvas');
 
@@ -155,7 +150,7 @@ function draw() {
  </script>
  </head>
 
- <body onload="initialize()">
+ <body>
   <div data-role="page">
     <div data-role="header">
     <h1>Color Analysis</h1></div><!-- /header -->
@@ -184,6 +179,7 @@ function draw() {
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
+        canvas.addEventListener("touchstart", draw, false);
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Uploaded image will go here", 10, 20);
