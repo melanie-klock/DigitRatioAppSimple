@@ -143,7 +143,9 @@ function draw() {
 
  if (canvas.getContext) {
    var context = canvas.getContext("2d");
-   context.strokeRect(event.touches[0].pageX, event.touches[0].pageY, 150, 50);
+   var touchX=touch.pageX-touch.target.offsetLeft;
+   var touchY=touch.pageY-touch.target.offsetTop;
+   context.strokeRect(event.touches[0].touchX, event.touches[0].touchY, 150, 50);
   }
 }
 /*
