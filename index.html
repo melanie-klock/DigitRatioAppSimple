@@ -145,7 +145,10 @@ function draw() {
    var context = canvas.getContext("2d");/*
    var touchX=touch.pageX-touch.target.offsetLeft;
    var touchY=touch.pageY-touch.target.offsetTop;*/
-   context.strokeRect(event.touches[0].pageX-touch.target.offsetLeft, event.touches[0].pageY-touch.target.offsetTop, 150, 50);
+   var touch = event.touches[0];
+   var touchX = touch.pageX-touch.target.offsetLeft;
+   var touchY = touch.pageY-touch.target.offsetTop;
+   context.strokeRect(touchX, touchY, 150, 50);
   }
 }
 /*
