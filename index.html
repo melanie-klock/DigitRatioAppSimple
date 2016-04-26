@@ -146,7 +146,8 @@ function draw() {
    var touch = event.touches[0];
    var touchX = touch.pageX-touch.target.offsetLeft;
    var touchY = touch.pageY-touch.target.offsetTop;
-   context.strokeStyle="10px #FF0000";
+   context.strokeStyle="#FF0000";
+   context.lineWidth=5;
    context.strokeRect(touchX, touchY, 150, 50);
   }
 }
