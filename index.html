@@ -141,7 +141,10 @@
  } // end of the window.onload function
 
 
-
+function reset()
+{
+  canvas.getContext('2d').clearRect(0,0,canvas.width, canvas.height);
+}
 
 //Creates drawing function for when user touches canvas
 function draw() {
@@ -217,6 +220,8 @@ function draw() {
         context.fillStyle = "black";
         context.fillText("Uploaded image will go here", 10, 20);
       </script>
+      
+      <a data-role="button" on-click="reset();">Reset</a>
       
 
     </div><!-- /content -->
