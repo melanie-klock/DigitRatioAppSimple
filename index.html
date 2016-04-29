@@ -143,9 +143,9 @@
 
 function reset()
 {
-  var canvas = document.getElementById('myCanvas');
-  var context = canvas.getContext("2d");
-  context.clearRect(0, 0, canvas.width, canvas.height);
+  img.onload = function() {
+    drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
+  }
 }
 
 //Creates drawing function for when user touches canvas
