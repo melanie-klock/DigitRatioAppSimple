@@ -148,6 +148,8 @@ function reset()
    drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
 }
 
+int[] coords = new int[2];
+
 //Creates drawing function for when user touches canvas
 function draw() {
  //Defines canvas variable from DOM
@@ -168,6 +170,10 @@ function draw() {
    context.lineWidth=5;
    //Draws 250x300 rectangle outline so that top left corner is where user touches
    context.strokeRect(touchX, touchY, 250, 300);
+   //Adds touchX coord to array coords in position 0
+   coords[0]=touchX;
+   //Adds touchY coord to array coords in position 1
+   coords[1]=touchY;
   }
 }
 
