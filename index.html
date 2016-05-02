@@ -148,7 +148,7 @@ function reset()
    drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
 }
 
-int[] coords = new int[2];
+var coords = [0,0];
 
 //Creates drawing function for when user touches canvas
 function draw() {
@@ -176,7 +176,6 @@ function draw() {
    coords[1]=touchY;
   }
 }
-
  
  </script>
  </head>
