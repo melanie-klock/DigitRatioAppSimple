@@ -141,9 +141,10 @@
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
 
-
+//Function that resets canvas with original image and erases any rectangles drawn
 function reset()
 {
+   //same code from line 102 that reuploads image onto canvas
    drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
 }
 
