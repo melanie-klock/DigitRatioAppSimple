@@ -176,7 +176,14 @@ function draw() {
    coords[1]=touchY;
   }
 }
- 
+
+function analyze() {
+ var imgData = context.getImageData(coords[0],coords[1], 250, 300);
+ var data = imageData.data;
+ var resultText=document.getElementById("results");
+ resultText.innerHTML="Red: "+data[0]+"<br>Green: "+data[1]+"<br>Blue: "+data[2];
+}
+
  </script>
  </head>
 
