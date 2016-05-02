@@ -183,8 +183,11 @@ function draw() {
 function analyze() {
  var imgData = context.getImageData(coords[0],coords[1], 250, 300);
  var data = imageData.data;
+ var imgData2 = context.getImageData(coords[2],coords[3],250,300);
+ var data2 = imageData2.data;
+ 
  var resultText=document.getElementById("results");
- resultText.innerHTML="Red: "+data[0]+"<br>Green: "+data[1]+"<br>Blue: "+data[2];
+ resultText.innerHTML="Red: "+data[0]+"<br>Green: "+data[1]+"<br>Blue: "+data[2]+"<br><br>Red: "+data[4]+"<br>Green: "+data[5]+"<br>Blue: "+data[6];
 }
 
  </script>
@@ -240,6 +243,9 @@ function analyze() {
       
       <br>
       <a data-role="button" onClick="reset();">Reset</a>
+      <br>
+      <a data-role="button" onClick="analyze();">Analyze</a>
+      <p id="results"></p>
       
 
     </div><!-- /content -->
