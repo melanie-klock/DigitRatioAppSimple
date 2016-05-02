@@ -148,7 +148,7 @@ function reset()
    drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
 }
 
-var coords = [0,0];
+var coords = [];
 
 //Creates drawing function for when user touches canvas
 function draw() {
@@ -156,24 +156,27 @@ function draw() {
  var canvas = document.getElementById('myCanvas');
 //if statement for when context is called
  if (canvas.getContext) {
-   //grabs 2D context from canvas
-   var context = canvas.getContext("2d");
-   //defines touch variable to make the following code a little simpler
-   var touch = event.touches[0];
-   //Fixes the value of pageX off set by the page scroll
-   var touchX = touch.pageX-touch.target.offsetLeft;
-   //Fixes value of pageY. Now rectangles on the canvas appear on the touch target
-   var touchY = touch.pageY-touch.target.offsetTop;
-   //Changes color of rectangle border
-   context.strokeStyle="#FF0000";
-   //Makes rectangle border thicker
-   context.lineWidth=5;
-   //Draws 250x300 rectangle outline so that top left corner is where user touches
-   context.strokeRect(touchX, touchY, 250, 300);
-   //Adds touchX coord to array coords in position 0
-   coords[0]=touchX;
-   //Adds touchY coord to array coords in position 1
-   coords[1]=touchY;
+   if (coords.length<4){
+    //grabs 2D context from canvas
+    var context = canvas.getContext("2d");
+    //defines touch variable to make the following code a little simpler
+    var touch = event.touches[0];
+    //Fixes the value of pageX off set by the page scroll
+    var touchX = touch.pageX-touch.target.offsetLeft;
+    //Fixes value of pageY. Now rectangles on the canvas appear on the touch target
+    var touchY = touch.pageY-touch.target.offsetTop;
+    //Changes color of rectangle border
+    context.strokeStyle="#FF0000";
+    //Makes rectangle border thicker
+    context.lineWidth=5;
+    //Draws 250x300 rectangle outline so that top left corner is where user touches
+    context.strokeRect(touchX, touchY, 250, 300);
+    //Adds touchX and touchY to array coords
+    coords.push(touchX,touchY);
+    }
+    else{
+     alert("Too many rectangles");
+    }
   }
 }
 
