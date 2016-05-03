@@ -252,9 +252,10 @@ function analyze() {
       <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
+        canvas.addEventListener('mousedown', clickDraw, false);
         //On a single touch, "draw" function is called and draws a rectangle on the canvas
         canvas.addEventListener("touchstart", draw, false);
-        canvas.addEventListener('mousedown', clickDraw, false);
+
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Uploaded image will go here", 10, 20);
