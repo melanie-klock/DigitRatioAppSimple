@@ -141,14 +141,16 @@
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
 
+var coords = [];
+
+
 //Function that resets canvas with original image and erases any rectangles drawn
 function reset()
 {
    //same code from line 102 that reuploads image onto canvas
    drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
+   coords = [];
 }
-
-var coords = [];
 
 //Creates drawing function for when user touches canvas
 function draw() {
@@ -175,7 +177,7 @@ function draw() {
     coords.push(touchX,touchY);
     }
     else{
-     alert("Too many rectangles");
+     alert("Too many rectangles. Press the reset button to start over");
     }
   }
 }
