@@ -202,9 +202,9 @@ function draw() {
 
 function analyze() {
  var imgData = context.getImageData(coords[0],coords[1], 150, 200);
- var data = imageData.data;
+ var data = imgData.data;
  var imgData2 = context.getImageData(coords[2],coords[3],150,200);
- var data2 = imageData2.data;
+ var data2 = imgData2.data;
  
  var resultText=document.getElementById("results");
  resultText.innerHTML="Red: "+data[0]+"<br>Green: "+data[1]+"<br>Blue: "+data[2]+"<br><br>Red: "+data[4]+"<br>Green: "+data[5]+"<br>Blue: "+data[6];
