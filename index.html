@@ -152,6 +152,24 @@ function reset()
    coords = [];
 }
 
+function clickDraw() {
+ if (canvas.getContext){
+  if (coords.length<4){
+   var clickX = event.offsetX;
+   var clickY = event.offsetY;
+    //Changes color of rectangle border
+    context.strokeStyle="#FF0000";
+    //Makes rectangle border thicker
+    context.lineWidth=5;
+   context.strokeRect(clickX, clickY, 150, 200);
+   coords.push(clickX,clickY);
+    }
+    else{
+     alert("Too many rectangles. Press the reset button to start over");
+    }
+  }
+ }
+
 //Creates drawing function for when user touches canvas
 function draw() {
  //Defines canvas variable from DOM
@@ -238,6 +256,7 @@ function analyze() {
         var context = canvas.getContext("2d");
         //On a single touch, "draw" function is called and draws a rectangle on the canvas
         canvas.addEventListener("touchstart", draw, false);
+        canvas.addEventListener('mousedown', clickDraw, false);
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Uploaded image will go here", 10, 20);
