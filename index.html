@@ -159,6 +159,7 @@ function clickDraw() {
    var clickY = event.offsetY;
     //Changes color of rectangle border
     context.strokeStyle="#FF0000";
+    context.lineWidth=3;
    context.strokeRect(clickX, clickY, 150, 200);
    coords.push(clickX,clickY);
     }
@@ -185,6 +186,7 @@ function draw() {
     var touchY = touch.pageY-touch.target.offsetTop;
     //Changes color of rectangle border
     context.strokeStyle="#FF0000";
+    context.lineWidth=3;
     //Draws 250x300 rectangle outline so that top left corner is where user touches
     context.strokeRect(touchX, touchY, 150, 200);
     //Adds touchX and touchY to array coords
