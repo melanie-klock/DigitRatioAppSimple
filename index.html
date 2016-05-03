@@ -172,9 +172,10 @@ function draw() {
     //Makes rectangle border thicker
     context.lineWidth=5;
     //Draws 250x300 rectangle outline so that top left corner is where user touches
-    context.strokeRect(touchX, touchY, 250, 300);
+    context.strokeRect(touchX, touchY, 150, 200);
     //Adds touchX and touchY to array coords
     coords.push(touchX,touchY);
+    alert(touchX + " " + touchY);
     }
     else{
      alert("Too many rectangles. Press the reset button to start over");
@@ -183,9 +184,9 @@ function draw() {
 }
 
 function analyze() {
- var imgData = context.getImageData(coords[0],coords[1], 250, 300);
+ var imgData = context.getImageData(coords[0],coords[1], 150, 200);
  var data = imageData.data;
- var imgData2 = context.getImageData(coords[2],coords[3],250,300);
+ var imgData2 = context.getImageData(coords[2],coords[3],150,200);
  var data2 = imageData2.data;
  
  var resultText=document.getElementById("results");
