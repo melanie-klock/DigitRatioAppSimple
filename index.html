@@ -175,7 +175,6 @@ function draw() {
     context.strokeRect(touchX, touchY, 150, 200);
     //Adds touchX and touchY to array coords
     coords.push(touchX,touchY);
-    alert(coords[0] + " " + coords[1]);
     }
     else{
      alert("Too many rectangles. Press the reset button to start over");
@@ -247,8 +246,9 @@ function analyze() {
       <br>
       <a data-role="button" onClick="reset();">Reset</a>
       <br>
-      <a data-role="button" onClick="analyze();">Analyze</a>
       <p id="results"></p>
+      <a data-role="button" onClick="analyze();">Analyze</a>
+      
       
 
     </div><!-- /content -->
