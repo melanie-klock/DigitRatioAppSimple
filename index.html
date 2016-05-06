@@ -175,7 +175,6 @@ function clickDraw() {
 function draw() {
  //Defines canvas variable from DOM
  var canvas = document.getElementById('myCanvas');
- event.preventDefault();
 //if statement for when context is called
  if (canvas.getContext) {
    if (coords.length<4){
@@ -207,8 +206,19 @@ function analyze() {
  var imgData2 = context.getImageData(coords[2]+3,coords[3]+3,150,200);
  var data2 = imgData2.data;
  
+ var rgbTotal = data[0]+data[1]+data[2];
+ var redPerc = (data[0]/rgbTotal)*100;
+ var greenPerc = (data[1]/rgbTotal)*100;
+ var bluePerc = (data[2]/rgbTotal)*100;
+ 
+ var rgbTotal2 = data[4]+data[5]+data[6];
+ var redPerc2 = (data[4]/rgbTotal2)*100;
+ var greenPerc2 = (data[5]/rgbTotal2)*100;
+ var bluePerc2 = (data[6]/rgbTotal2)*100;
+ 
+ 
  var resultText=document.getElementById("results");
- resultText.innerHTML="Red: "+data[0]+"<br>Green: "+data[1]+"<br>Blue: "+data[2]+"<br><br>Red: "+data[4]+"<br>Green: "+data[5]+"<br>Blue: "+data[6];
+ resultText.innerHTML="First Tube:<br>Red: "+redPerc+"<br>Green: "+greenPerc+"<br>Blue: "+bluePerc+"<br><br>Second Tube:<br>Red: "+redPerc2+"<br>Green: "+greenPerc2+"<br>Blue: "+bluePerc2;
 }
 
  </script>
