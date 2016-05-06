@@ -176,7 +176,7 @@ function draw() {
  //Defines canvas variable from DOM
  var canvas = document.getElementById('myCanvas');
 //if statement for when context is called
- if (coords.length<4){
+ //if (coords.length<4){
   if (canvas.getContext) {
     //grabs 2D context from canvas
     var context = canvas.getContext("2d");
@@ -194,10 +194,10 @@ function draw() {
     //Adds touchX and touchY to array coords
     coords.push(touchX,touchY);
     }
-  }
-    else{
+  //}
+    //else{
      alert("Too many rectangles. Press the reset button to start over");
-    }
+    //}
 }
 
 function analyze() {
