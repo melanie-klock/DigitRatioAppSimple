@@ -175,6 +175,7 @@ function clickDraw() {
 function draw() {
  //Defines canvas variable from DOM
  var canvas = document.getElementById('myCanvas');
+ event.preventDefault();
 //if statement for when context is called
  if (canvas.getContext) {
    if (coords.length<4){
