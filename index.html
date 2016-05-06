@@ -222,10 +222,20 @@ function analyze() {
  var bluePerc2 = (data[6]/rgbTotal2)*100;
   var blueFix2 = bluePerc2.toFixed(1);
  
+ var greenTube;
+ if (greenPerc>greenPerc2) {
+  greenTube = "Tube 1";
+ }
+ else if (greenPerc<greenPerc2) {
+  greenTube = "Tube 2";
+ }
+ else {
+  greenTube = "Neither tube";
+ }
  
  var resultText=document.getElementById("results");
  
- resultText.innerHTML = "<table><caption>The tube with the most green is</caption><tr><th colspan=3>First Tube</th><th colspan=3>Second Tube</th></tr><tr><td>Red</td><td>Green</td><td>Blue</td><td>Red</td><td>Green</td><td>Blue</td></tr><tr><td>"+redFix+"%</td><td>"+greenFix+"%</td><td>"+blueFix+"%</td><td>"+redFix2+"%</td><td>"+greenFix2+"%</td><td>"+blueFix2+"%</td></tr></table>";
+ resultText.innerHTML = "<table><caption>"+greenTube+" has the highest green content!<br></caption><tr><th colspan=3>First Tube</th><th colspan=3>Second Tube</th></tr><tr><td>Red</td><td>Green</td><td>Blue</td><td>Red</td><td>Green</td><td>Blue</td></tr><tr><td>"+redFix+"%</td><td>"+greenFix+"%</td><td>"+blueFix+"%</td><td>"+redFix2+"%</td><td>"+greenFix2+"%</td><td>"+blueFix2+"%</td></tr></table>";
  
  //resultText.innerHTML="First Tube:<br>Red: "+redFix+"%<br>Green: "+greenFix+"%<br>Blue: "+blueFix+"%<br><br>Second Tube:<br>Red: "+redFix2+"%<br>Green: "+greenFix2+"%<br>Blue: "+blueFix2+"%";
 }
@@ -236,7 +246,7 @@ function analyze() {
  <style>
   
   table {
-   float: center;
+   margin: 0px auto;
   }
   
   table, th, td {
