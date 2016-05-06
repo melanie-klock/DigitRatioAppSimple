@@ -208,17 +208,23 @@ function analyze() {
  
  var rgbTotal = data[0]+data[1]+data[2];
  var redPerc = (data[0]/rgbTotal)*100;
+  var redFix = redPerc.toFixed(1);
  var greenPerc = (data[1]/rgbTotal)*100;
+  var greenFix = greenPerc.toFixed(1);
  var bluePerc = (data[2]/rgbTotal)*100;
+  var blueFix = bluePerc.toFixed(1);
  
  var rgbTotal2 = data[4]+data[5]+data[6];
  var redPerc2 = (data[4]/rgbTotal2)*100;
+  var redFix2 = redPerc2.toFixed(1);
  var greenPerc2 = (data[5]/rgbTotal2)*100;
+  var greenFix2 = greenPerc2.toFixed(1);
  var bluePerc2 = (data[6]/rgbTotal2)*100;
+  var blueFix2 = bluePerc2.toFixed(1);
  
  
  var resultText=document.getElementById("results");
- resultText.innerHTML="First Tube:<br>Red: "+redPerc+"<br>Green: "+greenPerc+"<br>Blue: "+bluePerc+"<br><br>Second Tube:<br>Red: "+redPerc2+"<br>Green: "+greenPerc2+"<br>Blue: "+bluePerc2;
+ resultText.innerHTML="First Tube:<br>Red: "+redPerc+"%<br>Green: "+greenPerc+"%<br>Blue: "+bluePerc+"%<br><br>Second Tube:<br>Red: "+redPerc2+"%<br>Green: "+greenPerc2+"%<br>Blue: "+bluePerc2+"%";
 }
 
  </script>
