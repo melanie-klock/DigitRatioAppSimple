@@ -81,9 +81,6 @@
 
 /* window.onload necessary to keep javascripts from running before the app gets a chance to load entirely. */
  window.onload = function() {
-  canvas.addEventListener('mousedown', clickDraw, false);
-        //On a single touch, "draw" function is called and draws a rectangle on the canvas
-        canvas.addEventListener("touchstart", draw, false);
   var fileInput = document.getElementById('fileInput');
   var messageDisplayArea = document.getElementById('messageDisplayArea');
   /* fileInput.addEventListener looks for any change in the <input> tag indicating that the user has selected a file (picture). */
@@ -259,7 +256,7 @@ function analyze() {
         var context = canvas.getContext("2d");
         //canvas.addEventListener('mousedown', clickDraw, false);
         //On a single touch, "draw" function is called and draws a rectangle on the canvas
-        //canvas.addEventListener("touchstart", draw, false);
+        canvas.addEventListener("touchstart", draw, false);
 
         context.font = '20pt Calibri';
         context.fillStyle = "black";
