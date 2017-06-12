@@ -15,6 +15,7 @@
   Authors in chronological order of contribution:
   Author 1: Timothy E. Riedel
   Author 2: Cathy Li
+  Author 3: Melanie Klock
   
   References:
   http://docs.webplatform.org/wiki/concepts/programming/drawing_images_onto_canvas#Loading_the_image_programmatically
@@ -24,13 +25,14 @@
   http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
   
   Brief Description of Goal of Code:
-  Create an app that allows the user to upload an image from their phone onto a canvas, select two regions of interest (ROI),
-  analyze each ROI for RGB percentages, and then output the results in a table.
+  Create an app that allows the user to upload an image from their phone onto a canvas, select two points of interest (POI),
+  measure the ratio of distances between points, and then output the results in a table. This is going to be used to calculate digit
+  ratios. 
  
   Known Issues:
   Working on making this compatible with computers (only works on mobile devices with touch screens)
-  Would like to allow user to touch and drag a rectangle of desired size
-  Still need to code ROI analysis and output
+  Would like to be able to zoom in for increased accuracy
+  
 -->
 
  <head>
@@ -255,23 +257,24 @@ function analyze() {
  <body>
   <div data-role="page">
     <div data-role="header">
-    <h1>Color Analysis</h1></div><!-- /header -->
+    <h1>Digit Ratios</h1></div><!-- /header -->
     <div data-role="content">	
-      Welcome to the PCR Image Analysis website for DIY Diagnostics!<br>
+      Welcome to the Digit Ratios App for DIY Diagnostics!<br>
       The process can be completed in a few simple steps:<br>
       <ol> <!-- begins ordered (number) list -->
        <!-- <li> begins a new item in the list -->
-       <li>Upload an image of the PCR tubes you would like to analyze (over a white background)</li>
-       <li>Tap the upper left hand corner of each PCR tube so that the red rectangle is surrounding them</li>
-       <li>If you want to reposition your rectangles, press the "Reset" button at the bottom of the page</li>
-       <li>Press the "Analyze" button when you are satisfied with how your rectangles are placed</li>
+       <li>Upload an image of your hand (see example above).</li>
+       <li>Look at the index finger. First, tap the tip of the index finger, then the point where the index finger meets the palm of the hand.</li>
+       <li>Repeat for the ring finger.</li>
+       <li>If you want to start over, press the "Reset" button at the bottom of the page.</li>
+       <li>Press the "Analyze" button when you are satisfied with how your points are placed.</li>
        <li>Get your results!</li>
       </ol> <!-- end of list -->
       
       Press the button bellow to continue:
       <a href="#page2" data-role="button">Continue</a>
       
-      <i>*Note: must be on a mobile device</i>
+      <i>*Note: must be on a mobile device!</i>
     </div><!-- /content -->
   </div><!-- /page -->
   
