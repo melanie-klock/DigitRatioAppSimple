@@ -194,11 +194,11 @@ function analyze() {
 	context.stroke();
 	
 	//distance equation data
-	var equation1 = Math.pow(coords[0]-coords[1], 2);
-	var equation2 = Math.pow(coords[2]-coords[3], 2);
+	var equation1 = Math.pow(coords[0]-coords[2], 2);
+	var equation2 = Math.pow(coords[1]-coords[3], 2);
 	var line1 = Math.sqrt(equation1 + equation2);
-	var equation2 = Math.pow(coords[4]-coords[5], 2);
-	var equation3 = Math.pow(coords[6]-coords[7], 2);
+	var equation2 = Math.pow(coords[4]-coords[6], 2);
+	var equation3 = Math.pow(coords[5]-coords[7], 2);
 	var line2 = Math.sqrt(equation2 + equation3);
 	
 	var resultText=document.getElementById("results");
