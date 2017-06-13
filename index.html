@@ -155,23 +155,29 @@ function reset()
    coords = [];
 }
 
+	 
+function line(x1,y1, x2, y2, canvas){
+	canvas.beginPath();
+	canvas.moveTo(x1, y1);
+	canvas.lineTo(x2,y2);
+	canvas.stroke();
+}
+	 
+
 //Creates drawing function for when user touches canvas
 function draw() {
 //if statement for when context is called
  if (canvas.getContext) {
    //following code only happens if there are >2 rectangles on the canvas
-   if (coords.length<4){
+   if (coords.length<8){
     //defines touch variable to make the following code a little simpler
     var touch = event.touches[0];
     //Fixes the value of pageX off set by the page scroll
     var touchX = touch.pageX-touch.target.offsetLeft;
     //Fixes value of pageY. Now rectangles on the canvas appear on the touch target
     var touchY = touch.pageY-touch.target.offsetTop;
-context.beginPath();
-context.moveTo(0,0);
-context.lineTo(touchX, touchY);
-context.stroke();
-    //Draws 250x300 rectangle outline so that top left corner is where user touches
+	   
+    context.strokeRect(touchX, touchY, 1, 1);
     //Adds touchX and touchY to array coords
     coords.push(touchX,touchY);
     }
@@ -295,7 +301,7 @@ function analyze() {
       <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
-        //On a single touch, "draw" function is called and draws a rectangle on the canvas
+        //On a single touch, "draw" function is called and draws a line on the canvas
         canvas.addEventListener("touchstart", draw, false);
 
         context.font = '20pt Calibri';
