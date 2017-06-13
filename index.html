@@ -195,10 +195,16 @@ function analyze() {
 	context.lineTo(coords[6], coords[7]);
 	context.stroke();
  
+var equation1 = Math.pow(coords[0]-coords[1], 2);
+var equation2 = Math.pow(coords[2]-coords[3], 2);
+var line1 = sqrt(equation1 + equation2);
+var equation2 = Math.pow(coords[4]-coords[5], 2);
+var equation3 = Math.pow(coords[6]-coords[7], 2);
+var line2 = sqrt(equation2 + equation3);
  //grabs paragraph 'results' from DOM
  var resultText=document.getElementById("results");
  //inputs a table with the percentage results in the paragraph
- resultText.innerHTML = "Bleahhhhhh";
+ resultText.innerHTML = "Your digit ratio is " + (line1/line2);
 }
 
  </script>
