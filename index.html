@@ -167,12 +167,11 @@ function draw() {
     var touchX = touch.pageX-touch.target.offsetLeft;
     //Fixes value of pageY. Now rectangles on the canvas appear on the touch target
     var touchY = touch.pageY-touch.target.offsetTop;
-    //Changes color of rectangle border
-    context.strokeStyle="#FF0000";
-    //Changes width of rectangle border
-    context.lineWidth=3;
+context.beginPath();
+context.moveTo(0,0);
+context.lineTo(touchX, touchY);
+context.stroke();
     //Draws 250x300 rectangle outline so that top left corner is where user touches
-    context.lineTo(touchX, touchY);
     //Adds touchX and touchY to array coords
     coords.push(touchX,touchY);
     }
