@@ -165,16 +165,12 @@ function startGame() {
 }
 
 var myGameArea = {
-    canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 480;
-        this.canvas.height = 270;
-        this.context = this.canvas.getContext("2d");
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        document.body.insertBefore(canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
     },
     clear : function() {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        context.clearRect(0, 0, canvas.width, canvas.height);
     }
 }
 
@@ -325,9 +321,7 @@ function analyze() {
 	<div id="messageDisplayArea"></div>
 	<div style="text-align:center;width:480px;">
 	<canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-	<script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
-		window.onload = startGame()
-      </script>
+		<a data-role ="button" onClick="startGame();">Start!</a>
 	<button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button>
   <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
   <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button>
