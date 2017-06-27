@@ -35,7 +35,8 @@
   the analysis process is very similar to the original solution. 
  
   Known Issues:
-  TBD!
+  Image won't transfer to multiple pages
+  Need to get pointers working on image (onload?)
   
 -->
 
@@ -324,6 +325,8 @@ function analyze() {
 	<div id="messageDisplayArea"></div>
 	<div style="text-align:center;width:480px;">
 	<canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+	<script onload="startGame()"> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
+      </script>
 	<button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button>
   <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
   <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button>
