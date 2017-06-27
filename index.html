@@ -166,7 +166,7 @@ function startGame() {
 
 var myGameArea = {
     start : function() {
-	context = this.canvas.getContext("2d");
+	context = canvas.getContext("2d");
         document.body.insertBefore(canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
     },
