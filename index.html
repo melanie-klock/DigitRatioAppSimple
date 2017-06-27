@@ -28,16 +28,20 @@
   Create an app that allows the user to upload an image from their phone onto a canvas, select two points of interest (POI),
   measure the ratio of distances between points, and then output the results in a table. This is going to be used to calculate digit
   ratios. 
+  
+  I've forked this app from my previous work on the Color Analysis App, but now the functionality has changed. This app will have many
+  pages, each prompting the user to adjust a pointer on the canvas by arrow keys. Each pointer (corresponding to each of four points on
+  the hand) will be made more accurate through three levels of "zooming in" (fine, medium, coarse), so a total of 12 pages. At the end,
+  the analysis process is very similar to the original solution. 
  
   Known Issues:
-  Working on making this compatible with computers (only works on mobile devices with touch screens)
-  Would like to be able to zoom in for increased accuracy
+  TBD!
   
 -->
 
  <head>
   <meta charset="utf-8">
-  <title>Color Analysis</title>
+  <title>Digit Ratios</title>
   <meta name="viewport" content="width=device-width, initial-scale=.7">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" href="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
@@ -107,26 +111,7 @@
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
-          //note: img.onload code below is left over from App 8 assignment
-          
-           
-           // pulls the RGB image data from point (0,0) on the canvas and spans image's width and height
-           var imageData = context.getImageData(0, 0, img.width, img.height);
-           // defines array of points from imageData
-           var data = imageData.data;
-           
-           // for loop that goes through image data for every pixel (R,G,B,alpha) in data
-           for (var i = 0, n = data.length; i < n; i += 4)
-           {
-            // sets red value in pixel data to 0
-            data[i] = 0;
-            // sets green value in pixel data to 0
-            data[i + 1] = 0;
-           }
-           
-           // puts new image data from the above for loop onto second canvas starting from point (0,0)
-           //context2.putImageData(imageData, 0, 0);
-          
+          //note: img.onload code was deleted for simplicity (unneeded/left over from App 8 assignment)
           
         } // end of img.onload
         
@@ -143,20 +128,13 @@
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
 
-//creates array named coords for storing coordinates of ROIs
+//creates array named coords for storing coordinates of pointers
 var coords = [];
 
-//Function that resets canvas with original image and erases any rectangles drawn
-function reset()
-{
-   //same code from line 102 that reuploads image onto canvas
-   drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
-   //resets coords array
-   coords = [];
-}
+//deleted reset() function because unnecessary now
  
 	 
-
+//unsure if this function is still necessary or not, since no more touch screen capability.
 //Creates drawing function for when user touches canvas
 function draw() {
 //if statement for when context is called
@@ -178,10 +156,9 @@ function draw() {
 }
 
 //analysis and output of digit ratio data
+//for my new repository, I'll keep this code because it helps me draw the lines
+//might need to adjust it so it takes the coordinates of each pointer- just need to store pointer's coordinates in coords[].
 function analyze() {
-	if(coords.length != 8){
-		alert("You done goofed! Not enough or too many points, press reset and try again.")
-	}
  //following code gets the coordinate data from all four points and draws lines
 	context.beginPath();
 	context.moveTo(coords[0], coords[1]); //starting point at tip of index
@@ -211,6 +188,7 @@ function analyze() {
  </head>
 
  <body>
+<!-- ***THIS IS THE BEGINNING OF PAGE 1***-->
   <div data-role="page">
     <div data-role="header">
     <h1>Digit Ratios</h1>
@@ -232,14 +210,15 @@ function analyze() {
       Press the button bellow to continue:
       <a href="#page2" data-role="button">Continue</a>
       
-      <i>*Note: must be on a mobile device!</i>
+      <i>*Note: must be on a mobile device! (TBD)</i>
     </div><!-- /content -->
   </div><!-- /page -->
+<!-- ***THIS IS THE ENDING OF PAGE 1***-->
   
-  
+<!-- ***THIS IS THE BEGINNING OF PAGE 2***-->
   <div data-role="page" id="page2">
     <div data-role="header">
-    <h1>Color Analysis</h1></h1></div><!-- /header -->
+    <h1>Digit Ratios</h1></h1></div><!-- /header -->
     <div data-role="content">	
       <h2>Push button to take picture.</h2>
       <div>
@@ -264,11 +243,11 @@ function analyze() {
       <a data-role="button" onClick="analyze();">Analyze</a>
       <p id="results"></p>
       <br>
-      <a data-role="button" onClick="reset();">Reset</a>
       
       
 
     </div><!-- /content -->
   </div><!-- /page -->
+<!-- ***THIS IS THE BEGINNING OF PAGE 2***-->
  </body>
 </html>
