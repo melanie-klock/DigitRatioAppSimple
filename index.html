@@ -255,7 +255,7 @@ function analyze() {
  
  </head>
 
- <body onload="startGame()">
+ <body>
 <!-- ***THIS IS THE BEGINNING OF PAGE 1***-->
   <div data-role="page">
     <div data-role="header">
@@ -277,8 +277,6 @@ function analyze() {
       
       Press the button bellow to continue:
       <a href="#page2" data-role="button">Continue</a>
-      
-      <i>*Note: must be on a mobile device! (TBD)</i>
     </div><!-- /content -->
   </div><!-- /page -->
 <!-- ***THIS IS THE ENDING OF PAGE 1***-->
@@ -326,9 +324,9 @@ function analyze() {
 	<div id="messageDisplayArea"></div>
 	<div style="text-align:center;width:480px;">
 	<canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-	<button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
+	<button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button>
   <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
-  <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
+  <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button>
   <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>	
 	</div>
 	<br>
