@@ -166,7 +166,7 @@ function startGame() {
 
 var myGameArea = {
     start : function() {
-	this.context = canvas.getContext("2d");
+	context = canvas.getContext("2d");
         document.body.insertBefore(canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
     },
@@ -322,6 +322,11 @@ function analyze() {
 	<div id="messageDisplayArea"></div>
 	<div style="text-align:center;width:480px;">
 	<canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+	 <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext("2d");
+
+      </script>
 		<a data-role ="button" onClick="startGame();">Start!</a>
 	<button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button>
   <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
