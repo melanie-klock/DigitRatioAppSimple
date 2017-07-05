@@ -165,11 +165,11 @@ function startGame() {
 }
 
 var myGameArea = {
-    this.canvas : document.getElementById("canvas"),
+    this.canvas = document.getElementById("canvas"),
     start : function() {
         canvas.width = 480;
         canvas.height = 270;
-        context = canvas.getContext("2d");
+	this.context = canvas.getContext("2d");
         document.body.insertBefore(canvas, document.body.childNodes[0]);
         interval = setInterval(updateGameArea, 20);
     },
