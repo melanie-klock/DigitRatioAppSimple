@@ -157,71 +157,6 @@ function draw() {
 }
 	 
 // ***The following code is taken from a game tutorial and has been adjusted for this purpose.***
-var myGamePiece;
-
-function startGame() {
-    myGamePiece = new component(30, 30, "red", 10, 120);
-    myGameArea.start();
-}
-
-var myGameArea = {
-    this.canvas = document.getElementById("canvas");
-    start : function() {
-        canvas.width = 480;
-        canvas.height = 270;
-	this.context = canvas.getContext("2d");
-        document.body.insertBefore(canvas, document.body.childNodes[0]);
-        interval = setInterval(updateGameArea, 20);
-    },
-    clear : function() {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-    }
-}
-
-function component(width, height, color, x, y) {
-    this.width = width;
-    this.height = height;
-    this.speedX = 0;
-    this.speedY = 0;
-    this.x = x;
-    this.y = y;    
-    this.update = function() {
-        ctx = myGameArea.context;
-        ctx.fillStyle = color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-    }
-    this.newPos = function() {
-        this.x += this.speedX;
-        this.y += this.speedY;        
-    }    
-}
-
-function updateGameArea() {
-    myGameArea.clear();
-    myGamePiece.newPos();    
-    myGamePiece.update();
-}
-
-function moveup() {
-    myGamePiece.speedY = -1; 
-}
-
-function movedown() {
-    myGamePiece.speedY = 1; 
-}
-
-function moveleft() {
-    myGamePiece.speedX = -1; 
-}
-
-function moveright() {
-    myGamePiece.speedX = 1; 
-}
-
-function clearmove() {
-    myGamePiece.speedX = 0; 
-    myGamePiece.speedY = 0; 
-}
 
 
 //analysis and output of digit ratio data
@@ -298,7 +233,7 @@ function analyze() {
       <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
-        canvas.addEventListener("touchstart", draw, false);
+        //canvas.addEventListener("touchstart", draw, false);
 
         context.font = '20pt Calibri';
         context.fillStyle = "black";
@@ -325,8 +260,75 @@ function analyze() {
 	<div id="messageDisplayArea"></div>
 	<div style="text-align:center;width:480px;">
 	<canvas id="canvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-	 <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
+	 <script> /* This script initiates the canvas and puts the text on the canvas "canvas" */
+var myGamePiece;
 
+function startGame() {
+    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas = document.getElementById("canvas");
+    start : function() {
+        canvas.width = 480;
+        canvas.height = 270;
+	this.context = canvas.getContext("2d");
+        document.body.insertBefore(canvas, document.body.childNodes[0]);
+        interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+}
+
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.x = x;
+    this.y = y;    
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;        
+    }    
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myGamePiece.newPos();    
+    myGamePiece.update();
+}
+
+function moveup() {
+    myGamePiece.speedY = -1; 
+}
+
+function movedown() {
+    myGamePiece.speedY = 1; 
+}
+
+function moveleft() {
+    myGamePiece.speedX = -1; 
+}
+
+function moveright() {
+    myGamePiece.speedX = 1; 
+}
+
+function clearmove() {
+    myGamePiece.speedX = 0; 
+    myGamePiece.speedY = 0; 
+}
+
+		 
+		 
       </script>
 		<a data-role ="button" onClick="startGame();">Start!</a>
 	<button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button>
