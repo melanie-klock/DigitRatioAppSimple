@@ -53,7 +53,6 @@
   var img;
   var docMod = document.lastModified; // gets last modified date and time of the index.html file
   console.log("This file last modified  " + docMod); // displays last modified date and time in the javascipt browser console 
-
 /* detectVerticalSquash & drawImageIOSFix = are functions that are critical due to a flaw in the iPhone camera software that squishes any photos displayed on an HTML5 canvas element. https://github.com/stomita/ios-imagefile-megapixel
 */
  function detectVerticalSquash(img) {
@@ -80,12 +79,10 @@
   var ratio = (py / ih);
   return (ratio===0)?1:ratio;
  }
-
  function drawImageIOSFix(ctx, img, sx, sy, sw, sh, dx, dy, dw, dh) {
   var vertSquashRatio = detectVerticalSquash(img);
   ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh / vertSquashRatio);
  }
-
 /* window.onload necessary to keep javascripts from running before the app gets a chance to load entirely. */
  window.onload = function() {
   var fileInput = document.getElementById('fileInput');
@@ -107,10 +104,8 @@
           /*This finally draws the image onto the first drawing canvas. The specific canvas is referred to by "context". This is established down in the HTML part of the file just under the first <canvas> tag. If we weren't worried about fixing an iPhone bug we would use context.drawImage(image, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500) instead of drawImageIOSFix */
         
           drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
-
           /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
           //note: img.onload code was deleted for simplicity (unneeded/left over from App 8 assignment)
           
@@ -128,10 +123,8 @@
     } // end of the else statement if file in NOT an image
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
-
 //creates array named coords for storing coordinates of pointers
 var coords = [];
-	
 //deleted reset() function because unnecessary now
  
 	 
@@ -157,8 +150,6 @@ function draw() {
 }
 	 
 // ***The following code is taken from a game tutorial and has been adjusted for this purpose.***
-
-
 //analysis and output of digit ratio data
 //for my new repository, I'll keep this code because it helps me draw the lines
 //might need to adjust it so it takes the coordinates of each pointer- just need to store pointer's coordinates in coords[].
@@ -186,7 +177,6 @@ function analyze() {
 	resultText.innerHTML = "Your digit ratio is " + (line1/line2);
 	
 }
-
  </script>
  
  </head>
@@ -234,7 +224,6 @@ function analyze() {
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
         //canvas.addEventListener("touchstart", draw, false);
-
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Uploaded image will go here", 10, 20);
@@ -263,12 +252,10 @@ function analyze() {
 	 <script> /* This script initiates the canvas and puts the text on the canvas "canvas" */
 		 canvas2 = document.getElementById('canvas')
 var myGamePiece;
-
 function startGame() {
-    myGamePiece = new component(5, 5, "red", 1000, 1000);
+    myGamePiece = new component(5, 5, "red", 10, 120);
     myGameArea.start(canvas2);
 }
-
 var myGameArea = {
     start : function(canvas) {
 	this.context = canvas.getContext("2d");
@@ -279,7 +266,6 @@ var myGameArea = {
         canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
     }
 }
-
 function component(width, height, color, x, y) {
     this.width = width;
     this.height = height;
@@ -297,34 +283,27 @@ function component(width, height, color, x, y) {
         this.y += this.speedY;        
     }    
 }
-
 function updateGameArea() {
     myGameArea.clear(canvas2);
     myGamePiece.newPos();    
     myGamePiece.update();
 }
-
 function moveup() {
     myGamePiece.speedY = -1; 
 }
-
 function movedown() {
     myGamePiece.speedY = 1; 
 }
-
 function moveleft() {
     myGamePiece.speedX = -1; 
 }
-
 function moveright() {
     myGamePiece.speedX = 1; 
 }
-
 function clearmove() {
     myGamePiece.speedX = 0; 
     myGamePiece.speedY = 0; 
 }
-
 		 
 		 
       </script>
@@ -333,7 +312,6 @@ function clearmove() {
   <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
   <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button>
   <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>	
-
 	</div>
 	<br>
       <a href="#page3" data-role="button">Continue</a>
