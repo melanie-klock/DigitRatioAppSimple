@@ -286,15 +286,15 @@ function component(width, height, color, x, y) {
 var myGamePiece;
 var myBackground;
 function startGame() {
-    myGamePiece = new component(5, 5, "red", 100, 100);
-    myBackground = new component(656, 270, img, 0, 0, "image");
+    myGamePiece = new component(5, 5, "red", 1000, 1000);
+    //myBackground = new component(656, 270, img, 0, 0, "image");
     myGameArea.start(canvas2);
 }
 
 function updateGameArea() {
     myGameArea.clear(canvas2);
-    myBackground.newPos(); 
-    myBackground.update();
+    //myBackground.newPos(); 
+    //myBackground.update();
     myGamePiece.newPos();    
     myGamePiece.update();
     myGamePiece.speedX = 0; 
