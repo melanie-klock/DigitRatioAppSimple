@@ -265,7 +265,7 @@ function analyze() {
 var myGamePiece;
 
 function startGame() {
-    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGamePiece = new component(5, 5, "red", 10, 120);
     myGameArea.start(canvas2);
 }
 
@@ -276,7 +276,7 @@ var myGameArea = {
         interval = setInterval(updateGameArea, 20);
     },
     clear : function(canvas) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
     }
 }
 
