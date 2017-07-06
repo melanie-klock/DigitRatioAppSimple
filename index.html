@@ -298,11 +298,6 @@ function component(width, height, color, x, y) {
     }    
 }
 
-//now we need a function that will save the coordinates of the component in the coords[] array
-function addToArray(){
-	coords.push(myGamePiece.x, myGamePiece.y)
-}
-
 function updateGameArea() {
     myGameArea.clear(canvas2);
     myGamePiece.newPos();    
@@ -341,7 +336,7 @@ function clearmove() {
 
 	</div>
 	<br>
-      <a href="#page3" data-role="button" onClick="addToArray();">Continue</a>
+      <a href="#page3" data-role="button">Continue</a>
       <br>
  </div><!-- /content -->
   </div><!-- /page -->
