@@ -266,12 +266,7 @@ var myGamePiece;
 
 function startGame() {
     myGamePiece = new component(5, 5, "red", 1000, 1000);
-	//this will add the past chosen targets
-	 for (var i = 0; i < coords; i = i +2) {
-		 ctx = myGameArea.context;
-      	  	 ctx.fillStyle = "red";
-        	 ctx.fillRect(coords[i], coords[i+1], 5, 5);
-	 }
+	
     myGameArea.start(canvas2);
 }
 
@@ -306,7 +301,7 @@ function component(width, height, color, x, y) {
 
 //now we need a function that will save the coordinates of the component in the coords[] array
 function addToArray(){
-	coords[].push(myGamePiece.x, myGamePiece.y)
+	coords.push(myGamePiece.x, myGamePiece.y)
 }
 
 function updateGameArea() {
