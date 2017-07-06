@@ -261,24 +261,24 @@ function analyze() {
 	<div style="text-align:center;width:480px;">
 	<canvas id="canvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
 	 <script> /* This script initiates the canvas and puts the text on the canvas "canvas" */
+		 canvas2 = document.getElementById('canvas')
 var myGamePiece;
 
 function startGame() {
     myGamePiece = new component(30, 30, "red", 10, 120);
-    myGameArea.start();
+    myGameArea.start(canvas2);
 }
 
 var myGameArea = {
-    canvas2 : document.getElementById("canvas"),
-    start : function() {
-        canvas2.width = 480;
-        canvas2.height = 270;
-	this.context = canvas2.getContext("2d");
-        document.body.insertBefore(canvas2, document.body.childNodes[0]);
+    start : function(canvas) {
+        canvas.width = 480;
+        canvas.height = 270;
+	this.context = canvas.getContext("2d");
+        document.body.insertBefore(canvas, document.body.childNodes[0]);
         interval = setInterval(updateGameArea, 20);
     },
-    clear : function() {
-        context.clearRect(0, 0, canvas2.width, canvas2.height);
+    clear : function(canvas) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
     }
 }
 
@@ -301,7 +301,7 @@ function component(width, height, color, x, y) {
 }
 
 function updateGameArea() {
-    myGameArea.clear();
+    myGameArea.clear(canvas2);
     myGamePiece.newPos();    
     myGamePiece.update();
 }
