@@ -181,13 +181,11 @@ function analyze() {
 var myGameArea = {
     start : function(canvas) {
 	this.context = canvas.getContext("2d");
-	 drawImageIOSFix(canvas.getContext("2d"),img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
         //document.body.insertBefore(canvas, document.body.childNodes[0]);
         interval = setInterval(updateGameArea, 20);
     },
     clear : function(canvas) {
         canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-	drawImageIOSFix(canvas.getContext("2d"),img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
     }
 }
 function component(width, height, color, x, y) {
@@ -286,13 +284,6 @@ function component(width, height, color, x, y) {
 		 canvas2 = document.getElementById('canvas')
 var myGamePiece;
 function startGame() {
-    myGamePiece = new component(5, 5, "red", 10, 120);
-	myGamePiece.speedX = 0; 
-   	myGamePiece.speedY = 0; 
-    myGameArea.start(canvas2);
-}
-		 
-function startGame2() {
     myGamePiece = new component(5, 5, "red", 10, 120);
 	myGamePiece.speedX = 0; 
    	myGamePiece.speedY = 0; 
