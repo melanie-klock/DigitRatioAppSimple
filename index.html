@@ -177,6 +177,34 @@ function analyze() {
 	resultText.innerHTML = "Your digit ratio is " + (line1/line2);
 	
 }
+	 
+var myGameArea = {
+    start : function(canvas) {
+	this.context = canvas.getContext("2d");
+        //document.body.insertBefore(canvas, document.body.childNodes[0]);
+        interval = setInterval(updateGameArea, 20);
+    },
+    clear : function(canvas) {
+        canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+    }
+}
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.x = x;
+    this.y = y;    
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;        
+    }    
+}
  </script>
  
  </head>
@@ -256,33 +284,7 @@ function startGame() {
     myGamePiece = new component(5, 5, "red", 10, 120);
     myGameArea.start(canvas2);
 }
-var myGameArea = {
-    start : function(canvas) {
-	this.context = canvas.getContext("2d");
-        //document.body.insertBefore(canvas, document.body.childNodes[0]);
-        interval = setInterval(updateGameArea, 20);
-    },
-    clear : function(canvas) {
-        canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-    }
-}
-function component(width, height, color, x, y) {
-    this.width = width;
-    this.height = height;
-    this.speedX = 0;
-    this.speedY = 0;
-    this.x = x;
-    this.y = y;    
-    this.update = function() {
-        ctx = myGameArea.context;
-        ctx.fillStyle = color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-    }
-    this.newPos = function() {
-        this.x += this.speedX;
-        this.y += this.speedY;        
-    }    
-}
+
 function updateGameArea() {
     myGameArea.clear(canvas2);
     myGamePiece.newPos();    
