@@ -123,6 +123,7 @@
     } // end of the else statement if file in NOT an image
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
+
 //creates array named coords for storing coordinates of pointers
 var coords = [];
 //deleted reset() function because unnecessary now
@@ -283,17 +284,21 @@ function component(width, height, color, x, y) {
 	 <script> /* This script initiates the canvas and puts the text on the canvas "canvas" */
 		 canvas2 = document.getElementById('canvas')
 var myGamePiece;
+var myBackground;
 function startGame() {
     myGamePiece = new component(5, 5, "red", 10, 120);
-	myGamePiece.speedX = 0; 
-   	myGamePiece.speedY = 0; 
+    myBackground = new component(656, 270, img, 0, 0, "image");
     myGameArea.start(canvas2);
 }
 
 function updateGameArea() {
     myGameArea.clear(canvas2);
+    myBackground.newPos(); 
+    myBackground.update();
     myGamePiece.newPos();    
     myGamePiece.update();
+    myGamePiece.speedX = 0; 
+    myGamePiece.speedY = 0; 
 }
 function moveup() {
     myGamePiece.speedY = -1; 
