@@ -131,7 +131,7 @@
 
 //creates array named coords for storing coordinates of pointers
 var coords = [];
-
+	
 //deleted reset() function because unnecessary now
  
 	 
@@ -266,6 +266,12 @@ var myGamePiece;
 
 function startGame() {
     myGamePiece = new component(5, 5, "red", 10, 120);
+	//this will add the past chosen targets
+	 for (var i = 0; i < coords[]; i = i +2) {
+		 ctx = myGameArea.context;
+      	  	 ctx.fillStyle = "red";
+        	 ctx.fillRect(coords[i], coords[i+1], 5, 5);
+	 }
     myGameArea.start(canvas2);
 }
 
@@ -296,6 +302,11 @@ function component(width, height, color, x, y) {
         this.x += this.speedX;
         this.y += this.speedY;        
     }    
+}
+
+//now we need a function that will save the coordinates of the component in the coords[] array
+function addToArray(){
+	coords[].push(myGamePiece.x, myGamePiece.y)
 }
 
 function updateGameArea() {
@@ -333,9 +344,10 @@ function clearmove() {
   <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
   <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button>
   <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>	
+
 	</div>
 	<br>
-      <a href="#page3" data-role="button">Continue</a>
+      <a href="#page3" data-role="button" onClick="addToArray();">Continue</a>
       <br>
  </div><!-- /content -->
   </div><!-- /page -->
