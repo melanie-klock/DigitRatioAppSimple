@@ -265,9 +265,9 @@ function analyze() {
 var myGamePiece;
 
 function startGame() {
-    myGamePiece = new component(5, 5, "red", 10, 120);
+    myGamePiece = new component(5, 5, "red", 1000, 1000);
 	//this will add the past chosen targets
-	 for (var i = 0; i < coords[]; i = i +2) {
+	 for (var i = 0; i < coords; i = i +2) {
 		 ctx = myGameArea.context;
       	  	 ctx.fillStyle = "red";
         	 ctx.fillRect(coords[i], coords[i+1], 5, 5);
