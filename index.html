@@ -255,6 +255,11 @@ function component(width, height, color, x, y) {
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Uploaded image will go here", 10, 20);
+	var myGamePiece;
+function startGame() {
+    myGamePiece = new component(5, 5, "red", 200, 200);
+    myGameArea.start(canvas);
+}
       </script>
       <a data-role ="button" onClick="startGame();">Start!</a>
       <br>
