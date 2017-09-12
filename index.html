@@ -249,8 +249,8 @@ function component(width, height, color, x, y) {
       <div id="messageDisplayArea"></div>
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
-        var canvas = document.getElementById('myCanvas');
-        var context = canvas.getContext("2d");
+        var canvas1 = document.getElementById('myCanvas');
+        var context = canvas1.getContext("2d");
         //canvas.addEventListener("touchstart", draw, false);
         context.font = '20pt Calibri';
         context.fillStyle = "black";
@@ -258,7 +258,7 @@ function component(width, height, color, x, y) {
 	var myGamePiece;
 function startGame() {
     myGamePiece = new component(5, 5, "red", 200, 200);
-    myGameArea.start(canvas);
+    myGameArea.start(canvas1);
 }
       </script>
       <a data-role ="button" onClick="startGame();">Start!</a>
