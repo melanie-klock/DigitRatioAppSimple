@@ -99,30 +99,18 @@
         /* messageDisplayArea.innerHTML not needed but allows you to send a message at this point in the program. */
         messageDisplayArea.innerHTML = "You picked an image!";
         /* new Image() and img.onload start some kind of new image creation process in javaScript. I do not understand why this is necessary although it may simply slow things down to let the image load. */
-        //img = new Image();
-        //img.onload = function() {
+        img = new Image();
+        img.onload = function() {
           /*This finally draws the image onto the first drawing canvas. The specific canvas is referred to by "context". This is established down in the HTML part of the file just under the first <canvas> tag. If we weren't worried about fixing an iPhone bug we would use context.drawImage(image, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500) instead of drawImageIOSFix */
         
-         // drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
-	fabric.Image.fromURL(data, function(img) {
-            var oImg = img.set({
-                left: 0,
-                top: 0,
-                angle: 00,
-                width: canvas.width,
-                height: canvas.height
-            });
-            canvas.setBackgroundImage(oImg).renderAll();
-            var dataURL = canvas.toDataURL({
-                format: 'png',
-                quality: 0.8
-            });
+        drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
+	
           /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
           //note: img.onload code was deleted for simplicity (unneeded/left over from App 8 assignment)
           
-        //} // end of img.onload
+        } // end of img.onload
         );
         img.src = reader.result;
        //  end of reader.onload
