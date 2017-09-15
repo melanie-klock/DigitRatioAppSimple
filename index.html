@@ -248,63 +248,25 @@ function component(width, height, color, x, y) {
         <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
       </div>
       <div id="messageDisplayArea"></div>
+	   
+<!-- This code sets up two canvases layered on top of each other. The first layer is the picture, the second has the cursors.-->
 <div id="canvasesdiv" style="position:relative; width:600px; height:500px">
-      <!--<canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>-->
 	<canvas id="layer1" style="z-index: 1; position:absolute; left:0px; top:0px; " height="500px" width="600"></canvas>
 	<canvas id="layer2" style="z-index: 2; position:absolute; left:0px; top:0px; " height="500px" width="600"></canvas>
 	    </div>
       <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
-        var canvas1 = document.getElementById('layer1')
+        var canvas1 = document.getElementById('layer1')  //sets up first layer
         var context = canvas1.getContext("2d");
-        //canvas.addEventListener("touchstart", draw, false);
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Uploaded image will go here", 10, 20);
 	var myGamePiece;
-	var canvas2 = document.getElementById('layer2');
+	var canvas2 = document.getElementById('layer2');  //sets up second layer
 function startGame() {
-    myGamePiece = new component(5, 5, "red", 200, 200);
+    myGamePiece = new component(5, 5, "red", 200, 200);   //cursor
     myGameArea.start(canvas2);
 }
-      </script>
-	    <p id="results"></p>
-      <a data-role ="button" onClick="startGame();">Start!</a>
-<button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button>
-  <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
-  <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button>
-  <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
-      <br>
-      <a href="#page2" data-role="button" onClick="next()" >Continue</a>
-      <br>
-
-    </div><!-- /content -->
-  </div><!-- /page -->
-<!-- ***THIS IS THE ENDING OF PAGE 2***-->
-	
-<!-- ***THIS IS THE BEGINNING OF PAGE 3*** -->
-  <div data-role="page" id="page3">
-	<div data-role = "header">
-		<h1> Digit Ratios</h1></div> <!--header-->
-	<div data-role="content">
-		<h2> Index Finger Tip Selection: Coarse </h2>
-	<div>
-		Use the arrows to select where the tip of your index finger is.
-		</div>
-	<div id="messageDisplayArea"></div>
-	<div>
-        Press orange button to create or choose image file:
-        <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
-      </div>
-	<div style="text-align:center;width:480px;">
-	<canvas id="canvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-	 <script> /* This script initiates the canvas and puts the text on the canvas "canvas" */
-		 //var canvas2 = document.getElementById('canvas')
-//var myGamePiece;
-//function startGame() {
-   // myGamePiece = new component(5, 5, "red", 200, 200);
-   // myGameArea.start(canvas1);
-//}
-
+	      
 function updateGameArea() {
     myGameArea.clear(canvas2);
     myGamePiece.newPos();    
@@ -330,10 +292,47 @@ function clearmove() {
 function next(){
 	coords.push(myGamePiece.x, myGamePiece.y);
 	document.getElementById("results").innerHTML = "(" + myGamePiece.x + "," + myGamePiece.y + ")"
-	//if (coords.length < 9)
-		//analyze()
 	
 }
+      </script>
+	    <p id="results"></p>
+      <a data-role ="button" onClick="startGame();">Start!</a>
+<button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button>
+  <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
+  <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button>
+  <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+      <br>
+      <a href="#page2" data-role="button" onClick="next()" >Continue</a>
+      <br>
+
+    </div><!-- /content -->
+  </div><!-- /page -->
+<!-- ***THIS IS THE ENDING OF PAGE 2***-->
+	
+<!-- ***THIS IS THE BEGINNING OF PAGE 3*** -->
+<!-- right now, this page is not really being used, other than that it has code for the buttons.-->
+  <div data-role="page" id="page3">
+	<div data-role = "header">
+		<h1> Digit Ratios</h1></div> <!--header-->
+	<div data-role="content">
+		<h2> Index Finger Tip Selection: Coarse </h2>
+	<div>
+		Use the arrows to select where the tip of your index finger is.
+		</div>
+	<div id="messageDisplayArea"></div>
+	<div>
+        Press orange button to create or choose image file:
+        <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
+      </div>
+	<div style="text-align:center;width:480px;">
+	<canvas id="canvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+	 <script> /* This script initiates the canvas and puts the text on the canvas "canvas" */
+		 //var canvas2 = document.getElementById('canvas')
+//var myGamePiece;
+//function startGame() {
+   // myGamePiece = new component(5, 5, "red", 200, 200);
+   // myGameArea.start(canvas1);
+//}
 		 
 		 
       </script>
