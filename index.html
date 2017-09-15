@@ -35,8 +35,7 @@
   the analysis process is very similar to the original solution. 
  
   Known Issues:
-  Image won't transfer to multiple pages
-  Need to get pointers working on image (onload?)
+  Not ready to output digit ratio yet.
   
 -->
 
@@ -102,19 +101,12 @@
         img = new Image();
         img.onload = function() {
           /*This finally draws the image onto the first drawing canvas. The specific canvas is referred to by "context". This is established down in the HTML part of the file just under the first <canvas> tag. If we weren't worried about fixing an iPhone bug we would use context.drawImage(image, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500) instead of drawImageIOSFix */
-        
         drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
-	
-          /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
-          /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-          /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
-          //note: img.onload code was deleted for simplicity (unneeded/left over from App 8 assignment)
-          
         } // end of img.onload
         
         img.src = reader.result;
       }//  end of reader.onload
-      
+     
       reader.readAsDataURL(file);
     } // end of the if statement checking that file is an image
     else
@@ -128,8 +120,6 @@
 //creates array named coords for storing coordinates of pointers
 var coords = [];
 //deleted reset() function because unnecessary now
- 
-	 
 //unsure if this function is still necessary or not, since no more touch screen capability.
 //Creates drawing function for when user touches canvas
 function draw() {
@@ -151,7 +141,6 @@ function draw() {
 	}
 }
 	 
-// ***The following code is taken from a game tutorial and has been adjusted for this purpose.***
 //analysis and output of digit ratio data
 //for my new repository, I'll keep this code because it helps me draw the lines
 //might need to adjust it so it takes the coordinates of each pointer- just need to store pointer's coordinates in coords[].
@@ -176,9 +165,10 @@ function analyze() {
 	var line2 = Math.sqrt(equation2 + equation3);
 	
 	var resultText=document.getElementById("messageDisplayArea");
-	resultText.innerHTML = "Your digit ratio is " + (line1/line2);
-	
+	resultText.innerHTML = "Your digit ratio is " + (line1/line2);	
 }
+	 
+//this code is taken from an HTML5 Canvas game tutorial, that I've adjusted for my own purposes.
 	 
 var myGameArea = {
     start : function(canvas) {
@@ -224,10 +214,9 @@ function component(width, height, color, x, y) {
       <ol> <!-- begins ordered (number) list -->
        <!-- <li> begins a new item in the list -->
        <li>Upload an image of your hand (see example above).</li>
-       <li>Look at the index finger. First, tap the tip of the index finger, then the point where the index finger meets the palm of the hand.</li>
-       <li>Repeat for the ring finger.</li>
-       <li>If you want to start over, press the "Reset" button at the bottom of the page.</li>
-       <li>Press the "Analyze" button when you are satisfied with how your points are placed.</li>
+       <li>Use the cursors and the direction buttons to put each of the cursors at the tips and ends of the index and ring finger.</li>
+       <li>To select the cursor you want to move, use the ______ button.</li>
+       <li>Press the "Continue" button when you are satisfied with how your cursors are placed.</li>
        <li>Get your results!</li>
       </ol> <!-- end of list -->
       
