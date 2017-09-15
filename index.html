@@ -248,20 +248,23 @@ function component(width, height, color, x, y) {
         <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
       </div>
       <div id="messageDisplayArea"></div>
-      <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-<!--<canvas id="cursorCanvas" width=600 height=500 style="position: absolute; left: 0; top: 0; z-index: 2;"></canvas>-->
+<div id="canvasesdiv" style="position:relative; width:600px; height:500px">
+      <!--<canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>-->
+	<canvas id="layer1" style="z-index: 1; position:absolute; left:0px; top:0px; " height="500px" width="600"></canvas>
+	<canvas id="layer2" style="z-index: 2; position:absolute; left:0px; top:0px; " height="500px" width="600"></canvas>
+	    </div>
       <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
-        var canvas1 = document.getElementById('myCanvas')
+        var canvas1 = document.getElementById('layer1')
         var context = canvas1.getContext("2d");
         //canvas.addEventListener("touchstart", draw, false);
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Uploaded image will go here", 10, 20);
-	var myGamePiece2;
-	var cursorcanvas = document.getElementById('cursorCanvas');
+	var myGamePiece;
+	var canvas2 = document.getElementById('layer2');
 function startGame() {
     myGamePiece = new component(5, 5, "red", 200, 200);
-    myGameArea.start(canvas1);
+    myGameArea.start(canvas2);
 }
       </script>
 	    <p id="results"></p>
@@ -295,7 +298,7 @@ function startGame() {
 	<div style="text-align:center;width:480px;">
 	<canvas id="canvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
 	 <script> /* This script initiates the canvas and puts the text on the canvas "canvas" */
-		 var canvas2 = document.getElementById('canvas')
+		 //var canvas2 = document.getElementById('canvas')
 //var myGamePiece;
 //function startGame() {
    // myGamePiece = new component(5, 5, "red", 200, 200);
@@ -303,7 +306,7 @@ function startGame() {
 //}
 
 function updateGameArea() {
-    myGameArea.clear(canvas1);
+    myGameArea.clear(canvas2);
     myGamePiece.newPos();    
     myGamePiece.update();
 }
