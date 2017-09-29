@@ -282,14 +282,6 @@ function component(width, height, color, x, y) {
 <div id="canvasesdiv" style="position:relative; width:600px; height:500px">
 	<canvas id="layer1" style="z-index: 1; position:absolute; left:0px; top:0px; " height="500px" width="600"></canvas>
 	<canvas id="layer2" style="z-index: 2; position:absolute; left:0px; top:0px; " height="500px" width="600"></canvas>
-	<div class="dropdown">
-<button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</div>
 	    </div>
       <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
         var canvas1 = document.getElementById('layer1')  //sets up first layer
@@ -358,6 +350,14 @@ function next(){
   <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
   <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button>
   <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
       <br>
       <a href="#page2" data-role="button" onClick="next()" >Continue</a>
       <br>
