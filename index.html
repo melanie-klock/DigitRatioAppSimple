@@ -312,46 +312,50 @@ window.onclick = function(event) {
   }
 }
 function startGame() {
-    myGamePiece = new component(5, 5, "red", 200, 200);   //cursor
+   	indextip = new component(5, 5, "red", 200, 200);   //cursor for tip of index finger
+	indexbase = new component(5, 5, "blue", 200, 200); //cursor for base of index finger
+	ringtip = new component(5, 5, "green", 200, 200); //cursor for tip of ring finger
+	ringbase = new component(5, 5, "yellow", 200, 200); //cursor for base of ring finger
     myGameArea.start(canvas2);
 }
 	      
 function updateGameArea() {
     myGameArea.clear(canvas2);
-    myGamePiece.newPos();    
-    myGamePiece.update();
+    indextip.newPos();    
+    indextip.update();
 }
 function moveup() {
-    myGamePiece.speedY = -1; 
+    indextip.speedY = -1; 
 }
 function movedown() {
-    myGamePiece.speedY = 1; 
+    indextip.speedY = 1; 
 }
 function moveleft() {
-    myGamePiece.speedX = -1; 
+    indextip.speedX = -1; 
 }
 function moveright() {
-    myGamePiece.speedX = 1; 
+    indextip.speedX = 1; 
 }
 function clearmove() {
-    myGamePiece.speedX = 0; 
-    myGamePiece.speedY = 0; 
+    indextip.speedX = 0; 
+    indextip.speedY = 0; 
 }
 		 
 function next(){
-	coords.push(myGamePiece.x, myGamePiece.y);
-	document.getElementById("results").innerHTML = "(" + myGamePiece.x + "," + myGamePiece.y + ")";
+	coords.push(indextip.x, indextip.y);
+	document.getElementById("results").innerHTML = "(" + indextip.x + "," + indextip.y + ")";
 }
 
       </script>
 	    <p id="results"></p>
       <a data-role ="button" onClick="startGame();">Start!</a>
 <div class="dropdown">
-<button onclick="myFunction()" class="dropbtn">Dropdown</button>
+<button onclick="myFunction()" class="dropbtn">Select cursor</button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="#home">1. Index base</a>
+    <a href="#about">2. Index tip</a>
+    <a href="#contact">3. Ring base</a>
+    <a href="#contact">4. Ring tip</a> 
   </div>
 </div>
 <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button>
