@@ -294,6 +294,7 @@ function component(width, height, color, x, y) {
 	var canvas2 = document.getElementById('layer2');  //sets up second layer
 	/* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
+
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -317,6 +318,7 @@ function startGame() {
 	indexbase = new component(5, 5, "blue", 400, 200); //cursor for base of index finger
 	ringtip = new component(5, 5, "green", 200, 400); //cursor for tip of ring finger
 	ringbase = new component(5, 5, "yellow", 400, 400); //cursor for base of ring finger
+	var current = "red"
     myGameArea.start(canvas2);
 }
 	      
@@ -332,20 +334,78 @@ function updateGameArea() {
     ringbase.update();
 }
 function moveup() {
-    indextip.speedY = -1; 
+	if (current = "red")
+    		indextip.speedY = -1;
+	if (current = "blue")
+    		indexbase.speedY = -1;
+	if (current = "green")
+    		ringtip.speedY = -1;
+	if (current = "yellow")
+    		ringbase.speedY = -1;
 }
 function movedown() {
-    indextip.speedY = 1; 
+    if (current = "red")
+    		indextip.speedY = 1;
+	if (current = "blue")
+    		indexbase.speedY = 1;
+	if (current = "green")
+    		ringtip.speedY = 1;
+	if (current = "yellow")
+    		ringbase.speedY = 1; 
 }
 function moveleft() {
-    indextip.speedX = -1; 
+   if (current = "red")
+    		indextip.speedX = -1;
+	if (current = "blue")
+    		indexbase.speedX = -1;
+	if (current = "green")
+    		ringtip.speedX = -1;
+	if (current = "yellow")
+    		ringbase.speedX = -1;
 }
 function moveright() {
-    indextip.speedX = 1; 
+    if (current = "red")
+    		indextip.speedX = 1;
+	if (current = "blue")
+    		indexbase.speedX = 1;
+	if (current = "green")
+    		ringtip.speedX = 1;
+	if (current = "yellow")
+    		ringbase.speedX = 1; 
 }
 function clearmove() {
-    indextip.speedX = 0; 
-    indextip.speedY = 0; 
+     if (current = "red"){
+    		indextip.speedX = 0;
+	        indextip.speedY = 0;
+     } 
+	if (current = "blue"){
+    		indexbase.speedX = 0;
+	        indexbase.speedY = 0;
+     } 
+	if (current = "green"){
+    		ringtip.speedX = 0;
+	        ringtip.speedY = 0;
+     } 
+	if (current = "yellow"){
+    		ringbase.speedX = 0;
+	        ringbase.speedY = 0;
+     }   
+}
+	      
+function switchToRed(){   //tip of index finger
+	current = "red"
+}
+	      
+function switchToBlue(){  //base of index finger
+	current = "blue"
+}
+	      
+function switchToGreen(){  //tip of ring finger
+	current = "green"
+}
+
+function switchToYellow(){  //base of ring finger
+	current = "yellow"
 }
 		 
 function next(){
@@ -385,10 +445,10 @@ function next(){
 <div class="dropdown">
 <button onclick="myFunction()" class="dropbtn">Select cursor</button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="#home">1. Index base</a>
-    <a href="#about">2. Index tip</a>
-    <a href="#contact">3. Ring base</a>
-    <a href="#contact">4. Ring tip</a> 
+    <a href="#home" onClick = "switchToRed()" >1. Index base</a>
+    <a href="#about"onClick = "switchToBlue()" >2. Index tip</a>
+    <a href="#contact"onClick = "switchToGreen()" >3. Ring base</a>
+    <a href="#contact"onClick = "switchToYellow()" >4. Ring tip</a> 
   </div>
 </div>
 <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button>
