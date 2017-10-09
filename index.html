@@ -312,12 +312,12 @@ window.onclick = function(event) {
     }
   }
 }
+var current = [];
 function startGame() {
    	indextip = new component(5, 5, "red", 200, 200);   //cursor for tip of index finger
 	indexbase = new component(5, 5, "blue", 400, 200); //cursor for base of index finger
 	ringtip = new component(5, 5, "green", 200, 400); //cursor for tip of ring finger
 	ringbase = new component(5, 5, "yellow", 400, 400); //cursor for base of ring finger
-	var current = [];
 	current.push(1);
     myGameArea.start(canvas2);
 }
