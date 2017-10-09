@@ -319,6 +319,7 @@ function startGame() {
 	ringtip = new component(5, 5, "green", 200, 400); //cursor for tip of ring finger
 	ringbase = new component(5, 5, "yellow", 400, 400); //cursor for base of ring finger
 	current.push("red");
+	var resultText=document.getElementById("messageDisplayArea");
 	resultText.innerHTML = current.toString();
     myGameArea.start(canvas2);
 }
