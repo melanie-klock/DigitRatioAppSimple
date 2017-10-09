@@ -349,8 +349,34 @@ function clearmove() {
 }
 		 
 function next(){
+	// This functions pushes all the points into an array so the ratio can be calculated
 	coords.push(indextip.x, indextip.y);
-	document.getElementById("results").innerHTML = "(" + indextip.x + "," + indextip.y + ")";
+	coords.push(indexbase.x, indexbase.y);
+	coords.push(ringtip.x, ringtip.y);
+	coords.push(ringbase.x, ringbase.y);
+	
+	//then you can take the coords array and calculate the digit ratio
+	context.beginPath();
+	context.moveTo(coords[0], coords[1]); //starting point at tip of index
+	context.lineTo(coords[2], coords[3]);
+	context.stroke();
+	
+	context.beginPath();
+	context.moveTo(coords[4], coords[5]); //starting point at tip of index
+	context.lineTo(coords[6], coords[7]);
+	context.stroke();
+	
+	//distance equation data
+	var equation1 = Math.pow(coords[0]-coords[2], 2);
+	var equation2 = Math.pow(coords[1]-coords[3], 2);
+	var line1 = Math.sqrt(equation1 + equation2);
+	var equation2 = Math.pow(coords[4]-coords[6], 2);
+	var equation3 = Math.pow(coords[5]-coords[7], 2);
+	var line2 = Math.sqrt(equation2 + equation3);
+	
+	var resultText=document.getElementById("messageDisplayArea");
+	resultText.innerHTML = "Your digit ratio is " + (line1/line2);
+
 }
 
       </script>
@@ -370,7 +396,7 @@ function next(){
   <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button>
   <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
       <br>
-      <a href="#page2" data-role="button" onClick="next()" >Continue</a>
+      <a href="#page2" data-role="button" onClick="analyze()" >Continue</a>
       <br>
 
     </div><!-- /content -->
