@@ -317,7 +317,7 @@ function startGame() {
 	indexbase = new component(5, 5, "blue", 400, 200); //cursor for base of index finger
 	ringtip = new component(5, 5, "green", 200, 400); //cursor for tip of ring finger
 	ringbase = new component(5, 5, "yellow", 400, 400); //cursor for base of ring finger
-	var current = "red"
+	var current = 1
     myGameArea.start(canvas2);
 }
 	      
@@ -333,78 +333,78 @@ function updateGameArea() {
     ringbase.update();
 }
 function moveup() {
-	if (current = "red")
+	if (current = 1)
     		indextip.speedY = -1;
-	if (current = "blue")
+	else if (current = 2)
     		indexbase.speedY = -1;
-	if (current = "green")
+	else if (current = 3)
     		ringtip.speedY = -1;
-	if (current = "yellow")
+	else if (current = 4)
     		ringbase.speedY = -1;
 }
 function movedown() {
-    if (current = "red")
+    if (current = 1)
     		indextip.speedY = 1;
-	if (current = "blue")
+	else if (current = 2)
     		indexbase.speedY = 1;
-	if (current = "green")
+	else if (current = 3)
     		ringtip.speedY = 1;
-	if (current = "yellow")
+	else if (current = 4)
     		ringbase.speedY = 1; 
 }
 function moveleft() {
-   if (current = "red")
+   if (current = 1)
     		indextip.speedX = -1;
-	if (current = "blue")
+	else if (current = 2)
     		indexbase.speedX = -1;
-	if (current = "green")
+	else if (current = 3)
     		ringtip.speedX = -1;
-	if (current = "yellow")
+	else if (current = 4)
     		ringbase.speedX = -1;
 }
 function moveright() {
-    if (current = "red")
+    if (current = 1)
     		indextip.speedX = 1;
-	if (current = "blue")
+	else if (current = 2)
     		indexbase.speedX = 1;
-	if (current = "green")
+	else if (current = 3)
     		ringtip.speedX = 1;
-	if (current = "yellow")
+	else if (current = 4)
     		ringbase.speedX = 1; 
 }
 function clearmove() {
-     if (current = "red"){
+     if (current = 1){
     		indextip.speedX = 0;
 	        indextip.speedY = 0;
      } 
-	if (current = "blue"){
+	else if (current = 2){
     		indexbase.speedX = 0;
 	        indexbase.speedY = 0;
      } 
-	if (current = "green"){
+	else if (current = 3){
     		ringtip.speedX = 0;
 	        ringtip.speedY = 0;
      } 
-	if (current = "yellow"){
+	else if (current = 4){
     		ringbase.speedX = 0;
 	        ringbase.speedY = 0;
      }   
 }
 	      
 function switchToRed(){   //tip of index finger
-	current = "red"
+	current = 1
 }
 	      
 function switchToBlue(){  //base of index finger
-	current = "blue"
+	current = 2
 }
 	      
 function switchToGreen(){  //tip of ring finger
-	current = "green"
+	current = 3
 }
 
 function switchToYellow(){  //base of ring finger
-	current = "yellow"
+	current = 4
 }
 		 
 function next(){
