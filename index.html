@@ -348,6 +348,57 @@ function redclearmove() {
 	        indextip.speedY = 0;  
 }
 	      
+function bmoveup() {
+	indexbase.speedY = -1;
+}
+function bmovedown() {
+    		indexbase.speedY = 1;
+}
+function bmoveleft() {
+    		indexbase.speedX = -1;
+}
+function bmoveright() {
+    		indexbase.speedX = 1;
+}
+function bclearmove() {
+    		indexbase.speedX = 0;
+	        indexbase.speedY = 0;  
+}
+	     
+function gmoveup() {
+	ringtip.speedY = -1;
+}
+function gmovedown() {
+    		ringtip.speedY = 1;
+}
+function gmoveleft() {
+    		ringtip.speedX = -1;
+}
+function gmoveright() {
+    		ringtip.speedX = 1;
+}
+function gclearmove() {
+    		ringtip.speedX = 0;
+	        ringtip.speedY = 0;  
+}
+	      
+function ymoveup() {
+	ringbase.speedY = -1;
+}
+function ymovedown() {
+    		ringbase.speedY = 1;
+}
+function ymoveleft() {
+    		ringbase.speedX = -1;
+}
+function ymoveright() {
+    		ringbase.speedX = 1;
+}
+function yclearmove() {
+    		ringbase.speedX = 0;
+	        ringbase.speedY = 0;  
+}
+	      
 		 
 function next(){
 	// This functions pushes all the points into an array so the ratio can be calculated
@@ -388,6 +439,21 @@ function next(){
   <button onmousedown="redmoveleft()" onmouseup="redclearmove()" ontouchstart="redmoveleft()"data-inline="true">RED LEFT</button>
   <button onmousedown="redmoveright()" onmouseup="redclearmove()" ontouchstart="redmoveright()"data-inline="true">RED RIGHT</button>
   <button onmousedown="redmovedown()" onmouseup="redclearmove()" ontouchstart="redmovedown()"data-inline="true">RED DOWN</button>
+	    
+<button onmousedown="bmoveup()" onmouseup="bclearmove()" ontouchstart="bmoveup()"data-inline="true">BLUE UP</button>
+  <button onmousedown="bmoveleft()" onmouseup="bclearmove()" ontouchstart="bmoveleft()"data-inline="true">BLUE LEFT</button>
+  <button onmousedown="bmoveright()" onmouseup="bclearmove()" ontouchstart="bmoveright()"data-inline="true">BLUE RIGHT</button>
+  <button onmousedown="bmovedown()" onmouseup="bclearmove()" ontouchstart="bmovedown()"data-inline="true">BLUE DOWN</button>
+	    
+<button onmousedown="gmoveup()" onmouseup="gclearmove()" ontouchstart="gmoveup()"data-inline="true">GREEN UP</button>
+  <button onmousedown="gmoveleft()" onmouseup="gclearmove()" ontouchstart="gmoveleft()"data-inline="true">GREEN LEFT</button>
+  <button onmousedown="gmoveright()" onmouseup="gclearmove()" ontouchstart="gmoveright()"data-inline="true">GREEN RIGHT</button>
+  <button onmousedown="gmovedown()" onmouseup="gclearmove()" ontouchstart="gmovedown()"data-inline="true">GREEN DOWN</button>
+	    
+<button onmousedown="ymoveup()" onmouseup="yclearmove()" ontouchstart="ymoveup()"data-inline="true">YELLOW UP</button>
+  <button onmousedown="ymoveleft()" onmouseup="yclearmove()" ontouchstart="ymoveleft()"data-inline="true">YELLOW LEFT</button>
+  <button onmousedown="ymoveright()" onmouseup="yclearmove()" ontouchstart="ymoveright()"data-inline="true">YELLOW RIGHT</button>
+  <button onmousedown="ymovedown()" onmouseup="yclearmove()" ontouchstart="ymovedown()"data-inline="true">YELLOW DOWN</button>
       <br>
       <a href="#page2" data-role="button" onClick="next()" >Continue</a>
       <br>
