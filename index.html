@@ -312,15 +312,11 @@ window.onclick = function(event) {
     }
   }
 }
-var current = [];
 function startGame() {
    	indextip = new component(5, 5, "red", 200, 200);   //cursor for tip of index finger
 	indexbase = new component(5, 5, "blue", 400, 200); //cursor for base of index finger
 	ringtip = new component(5, 5, "green", 200, 400); //cursor for tip of ring finger
 	ringbase = new component(5, 5, "yellow", 400, 400); //cursor for base of ring finger
-	current.push("red");
-	var resultText=document.getElementById("messageDisplayArea");
-	resultText.innerHTML = current.toString();
     myGameArea.start(canvas2);
 }
 	      
@@ -335,80 +331,23 @@ function updateGameArea() {
     ringbase.newPos();
     ringbase.update();
 }
-function moveup() {
-	if (current[current.length-1] = 1)
-    		indextip.speedY = -1;
-	else if (current[current.length-1] = 2)
-    		indexbase.speedY = -1;
-	else if (current[current.length-1] = 3)
-    		ringtip.speedY = -1;
-	else if (current[current.length-1] = 4)
-    		ringbase.speedY = -1;
+function redmoveup() {
+	indextip.speedY = -1;
 }
-function movedown() {
-    if (current = 1)
+function redmovedown() {
     		indextip.speedY = 1;
-	else if (current = 2)
-    		indexbase.speedY = 1;
-	else if (current = 3)
-    		ringtip.speedY = 1;
-	else if (current = 4)
-    		ringbase.speedY = 1; 
 }
-function moveleft() {
-   if (current = 1)
+function redmoveleft() {
     		indextip.speedX = -1;
-	else if (current = 2)
-    		indexbase.speedX = -1;
-	else if (current = 3)
-    		ringtip.speedX = -1;
-	else if (current = 4)
-    		ringbase.speedX = -1;
 }
-function moveright() {
-    if (current = 1)
+function redmoveright() {
     		indextip.speedX = 1;
-	else if (current = 2)
-    		indexbase.speedX = 1;
-	else if (current = 3)
-    		ringtip.speedX = 1;
-	else if (current = 4)
-    		ringbase.speedX = 1; 
 }
-function clearmove() {
-     if (current = 1){
+function redclearmove() {
     		indextip.speedX = 0;
-	        indextip.speedY = 0;
-     } 
-	else if (current = 2){
-    		indexbase.speedX = 0;
-	        indexbase.speedY = 0;
-     } 
-	else if (current = 3){
-    		ringtip.speedX = 0;
-	        ringtip.speedY = 0;
-     } 
-	else if (current = 4){
-    		ringbase.speedX = 0;
-	        ringbase.speedY = 0;
-     }   
+	        indextip.speedY = 0;  
 }
 	      
-function switchToRed(){   //tip of index finger
-	current.push(1);
-}
-	      
-function switchToBlue(){  //base of index finger
-	current.push(2);
-}
-	      
-function switchToGreen(){  //tip of ring finger
-	current.push(3);
-}
-
-function switchToYellow(){  //base of ring finger
-	current.push(4);
-}
 		 
 function next(){
 	// This functions pushes all the points into an array so the ratio can be calculated
@@ -445,19 +384,10 @@ function next(){
 	    <div id="messageDisplayArea"></div>
 	    <p id="results"></p>
       <a data-role ="button" onClick="startGame();">Start!</a>
-<div class="dropdown">
-<button onclick="myFunction()" class="dropbtn">Select cursor</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#home" onClick = "switchToRed()" >1. Index base</a>
-    <a href="#about"onClick = "switchToBlue()" >2. Index tip</a>
-    <a href="#contact"onClick = "switchToGreen()" >3. Ring base</a>
-    <a href="#contact"onClick = "switchToYellow()" >4. Ring tip</a> 
-  </div>
-</div>
-<button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button>
-  <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
-  <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button>
-  <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+<button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="redmoveup()"data-inline="true">RED UP</button>
+  <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="redmoveleft()"data-inline="true">RED LEFT</button>
+  <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="redmoveright()"data-inline="true">RED RIGHT</button>
+  <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="redmovedown()"data-inline="true">RED DOWN</button>
       <br>
       <a href="#page2" data-role="button" onClick="next()" >Continue</a>
       <br>
