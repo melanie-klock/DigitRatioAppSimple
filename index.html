@@ -255,7 +255,7 @@ function component(width, height, color, x, y) {
        <!-- <li> begins a new item in the list -->
        <li>Upload an image of your hand (see example above).</li>
        <li>Use the cursors and the direction buttons to put each of the cursors at the tips and ends of the index and ring finger.</li>
-       <li>To select the cursor you want to move, use the ______ button.</li>
+       <!--<li>To select the cursor you want to move, use the ______ button.</li>-->
        <li>Press the "Continue" button when you are satisfied with how your cursors are placed.</li>
        <li>Get your results!</li>
       </ol> <!-- end of list -->
@@ -435,10 +435,12 @@ function next(){
 	    <div id="messageDisplayArea"></div>
 	    <p id="results"></p>
       <a data-role ="button" onClick="startGame();">Start!</a>
+<div data-role="controlgroup" data-type = "horizontal">
 <button onmousedown="redmoveup()" onmouseup="redclearmove()" ontouchstart="redmoveup()"data-inline="true">RED UP</button>
   <button onmousedown="redmoveleft()" onmouseup="redclearmove()" ontouchstart="redmoveleft()"data-inline="true">RED LEFT</button>
   <button onmousedown="redmoveright()" onmouseup="redclearmove()" ontouchstart="redmoveright()"data-inline="true">RED RIGHT</button>
   <button onmousedown="redmovedown()" onmouseup="redclearmove()" ontouchstart="redmovedown()"data-inline="true">RED DOWN</button>
+	    </div>
 	    
 <button onmousedown="bmoveup()" onmouseup="bclearmove()" ontouchstart="bmoveup()"data-inline="true">BLUE UP</button>
   <button onmousedown="bmoveleft()" onmouseup="bclearmove()" ontouchstart="bmoveleft()"data-inline="true">BLUE LEFT</button>
